@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="detailTitle">Detail Informasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Company App</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registrasi.html">Registrasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5 py-5">
+        <h1 id="infoTitle" class="display-5 text-primary">Memuat Detail...</h1>
+        <hr>
+        <p class="text-muted">Tanggal Publikasi: <span id="infoDate"></span></p>
+        <p id="infoDescription" class="lead mt-4"></p>
+        
+        <a href="index.html" class="btn btn-outline-secondary mt-4">← Kembali ke Utama</a>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-dark text-white">
+        <div class="container text-center">
+            <span>@Copyright by 23552011403_Ai Nurul Hidayah_ CNS A</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Data Dummy (Mirip dengan data yang akan dikelola Project 2)
+        const infoData = [
+            { id: 1, judul: "Pengumuman Terbaru A", deskripsi: "Ini adalah deskripsi LENGKAP dari Pengumuman A. Di sini dicantumkan semua detail penting, prosedur, dan tanggal-tanggal kunci yang terkait dengan pengumuman tersebut.", tanggal: "2025-11-01" },
+            { id: 2, judul: "Layanan Baru B", deskripsi: "Detail MENDALAM tentang Layanan Baru B. Layanan ini mencakup fitur-fitur revolusioner yang dirancang untuk meningkatkan produktivitas dan efisiensi pengguna. Cek sekarang!", tanggal: "2025-11-15" },
+            { id: 3, judul: "Proyek Masa Depan", deskripsi: "Rencana jangka panjang perusahaan. Fokus utama kami adalah ekspansi ke pasar global dan pengembangan teknologi hijau. Ikuti perkembangan proyek ini secara berkala.", tanggal: "2025-11-20" }
+        ];
+
+        // 1. Ambil ID dari URL (Query Parameter)
+        const urlParams = new URLSearchParams(window.location.search);
+        const infoId = parseInt(urlParams.get('id'));
+
+        // 2. Cari data yang sesuai
+        const selectedInfo = infoData.find(info => info.id === infoId);
+
+        // 3. Tampilkan data ke halaman
+        if (selectedInfo) {
+            document.getElementById('infoTitle').innerText = selectedInfo.judul;
+            document.getElementById('infoDescription').innerText = selectedInfo.deskripsi;
+            document.getElementById('infoDate').innerText = selectedInfo.tanggal;
+            document.getElementById('detailTitle').innerText = `Detail: ${selectedInfo.judul}`;
+        } else {
+            document.getElementById('infoTitle').innerText = "Informasi Tidak Ditemukan";
+            document.getElementById('infoDescription').innerText = "ID informasi yang diminta tidak valid.";
+        }
+    </script>
+</body>
+</html>

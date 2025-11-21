@@ -1,0 +1,47 @@
+/* file: style.css */
+
+/* --- Default Layout Styling (Bagian yang Anda Berikan) --- */
+/* Mengatur agar body mencakup tinggi penuh viewport (layar) */
+html, body {
+    height: 100%;
+}
+
+/* Mengatur tata letak body agar konten bisa didorong ke bawah */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Membuat konten utama mengambil sisa ruang */
+.container, .container-fluid {
+    flex-grow: 1;
+}
+
+/* --- Kustomisasi Warna Bootstrap (Bagian yang DITAMBAHKAN/DIUBAH) --- */
+
+/* 1. Mendefinisikan ulang variabel warna Bootstrap ke nuansa Pink */
+:root {
+    --bs-primary: #FF69B4;    /* Deep Pink: Untuk Navbar, Tombol Utama */
+    --bs-primary-rgb: 255, 105, 180;
+    --bs-secondary: #FFC0CB;  /* Light Pink: Untuk Header/Jumbotron */
+    --bs-success: #DB7093;    /* Pale Violet Red: Untuk Tombol/Status Sukses (Registrasi) */
+    --bs-danger: #FA8072;     /* Salmon: Untuk Peringatan/Gagal */
+}
+
+/* 2. Styling tambahan untuk navbar dan footer */
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white !important; /* Memastikan teks judul terlihat di navbar pink */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important; /* Memastikan teks link navigasi berwarna putih */
+}
+
+/* 3. Kelas kustom untuk Jumbotron agar menggunakan Light Pink */
+/* Kelas ini harus dipanggil di index.html pada tag <header> */
+.bg-light-pink {
+    background-color: var(--bs-secondary) !important;
+    color: #555 !important; /* Warna teks agar tetap terbaca */
+}
